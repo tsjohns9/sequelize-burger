@@ -1,0 +1,46 @@
+body {
+  background-color: #f5f5f5;
+}
+.btn {
+  margin: 0 auto;
+}
+
+.devour-btn {
+  font-size: 13px;
+}
+
+img {
+  width: 300px;
+  height: 250px;
+}
+
+#submit-btn {
+  padding: 0;
+  border: none;
+  border: 1px solid rgb(207, 207, 207);
+  resize: none;
+}
+
+textarea,
+.alert-danger {
+  width: 100%;
+}
+
+@media (min-width: 350px) {
+  .btn {
+    width: 83%;
+  }
+}
+
+@media (min-width: 576px) {
+  p {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  textarea,
+  .alert-danger {
+    width: 70%;
+  }
+}

@@ -1,0 +1,30 @@
+<div class="container text-center">
+  <h1 class="mb-4">Eat Da Burger</h1>
+  <img class="mb-4" src="/assets/img/krabby-patty.jpg" alt="krabby patty">
+
+  <div class="row mb-3">
+    <div class="col-sm-6 text-right mb-5" id="burger-container">
+      {{#each burger}} {{#unless devoured}}
+      <div class="btn btn-primary devour-btn mb-3 d-block" data-id="{{id}}" data-burger_name="{{burger_name}}" data-devoured="{{devoured}}">
+        <p>{{id}}. {{burger_name}}</p> 
+        <span class="badge badge-light p-2">Devour it</span>
+      </div>
+      {{/unless}} {{/each}}
+    </div>
+
+    <div class="col-sm-6 text-left devoured-container">
+      {{#each burger}} 
+        {{#if devoured}}
+          <div class="btn btn-danger mb-3 d-block">
+            <p >{{id}}. {{burger_name}} </p>
+            <small class="text-white">devoured</small>
+          </div>
+        {{/if}} 
+      {{/each}}
+    </div>
+
+  </div>
+  <div class="mb-5">
+    <textarea name="input" class="p-3 rounded" id="submit-btn" cols="0" rows="1" placeholder="Add a burger"></textarea>
+  </div>
+</div>
