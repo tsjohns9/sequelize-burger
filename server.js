@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const models = require('./models');
 const routes = require('./controllers/burgers_controller');
 
 // create the server
@@ -21,6 +22,8 @@ app.set('view engine', 'handlebars');
 
 // require the server to use our routes
 app.use(routes);
+
+models.sequelize.sync();
 
 // start the server
 app.listen(PORT, function() {

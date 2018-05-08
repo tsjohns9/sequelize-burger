@@ -1,26 +1,18 @@
-const orm = require('../config/orm');
+module.exports = function(sequelize, dataTypes) {
+  const Burger = sequelize.define(
+    'burgers',
+    {
+      burger_name: {
+        type: dataTypes.STRING
+      },
+      devoured: {
+        type: dataTypes.BOOLEAN
+      }
+    },
+    {
+      timestamps: false
+    }
+  );
 
-const burger = {
-  selectAll: function(callback) {
-    orm.selectAll('burgers', function(res) {
-      // this is the callback thats created in burgers_controller.js
-      callback(res);
-    });
-  },
-
-  create: function(column, value, callback) {
-    orm.create('burgers', column, value, function(res) {
-      callback(res);
-    });
-  },
-
-  // update one row
-  update: function(identifyBy, setValue, callback) {
-    orm.update('burgers', identifyBy, setValue, function(res) {
-      callback(res);
-    });
-  }
+  return Burger;
 };
-
-// Export the database functions for the controller (burgers_controller.js).
-module.exports = burger;
