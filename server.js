@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const models = require('./models');
-const routes = require('./controllers/burgers_controller');
+const routes = require('./routes/api-routes');
 
 // create the server
 const app = express();

@@ -4,7 +4,7 @@ const router = express.Router();
 
 // gets and renders all burgers
 router.get('/', function(req, res) {
-  model.burgers.findAll().then(function(results) {
+  model.Burgers.findAll().then(function(results) {
     const hbsObject = { burger: results };
     res.render('index', hbsObject);
   });
@@ -12,7 +12,11 @@ router.get('/', function(req, res) {
 
 // posts a new burger to the db
 router.post('/api/burgers', function(req, res) {
-  //
+  console.log(req.body);
+  model.Burgers.create({
+    burger_name: req.body.name,
+    devoured: 0
+  }).then(result => res.json({ id: result.dataValues.id }));
 });
 
 // updates an existing burger, and selects that burger to display the update
