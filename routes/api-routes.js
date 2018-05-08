@@ -21,7 +21,13 @@ router.post('/api/burgers', function(req, res) {
 
 // updates an existing burger, and selects that burger to display the update
 router.put('/api/burgers/:id', function(req, res) {
-  //
+  console.log(req.body);
+  model.Burgers.update(req.body.devoured, {
+    where: req.body.id
+  }).then(result => {
+    console.log(result);
+    res.status(200).end();
+  });
 });
 
 // export the routes for server.js
