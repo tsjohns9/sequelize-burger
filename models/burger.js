@@ -3,10 +3,19 @@ module.exports = function(sequelize, dataTypes) {
     'Burgers',
     {
       burger_name: {
-        type: dataTypes.STRING
+        type: dataTypes.STRING,
+        allowNull: false,
+        validate: {
+          is: /^[a-z]+$/i,
+          len: {
+            args: [1, 24],
+            msg: 'Must be between 1 and 24 characters'
+          }
+        }
       },
       devoured: {
-        type: dataTypes.BOOLEAN
+        type: dataTypes.BOOLEAN,
+        allowNull: false
       }
     },
     {

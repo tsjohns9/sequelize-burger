@@ -7,12 +7,15 @@
   </div>
 
   <div class="row mb-3">
-    <div class="col-sm-6 text-right mb-5" id="burger-container">
+    <div class="col-sm-6 text-right mb-3" id="burger-container">
       {{#each burger}} 
         {{#unless devoured}}
-        <div class="btn btn-primary devour-btn mb-3 d-block" data-id="{{id}}" data-burger_name="{{burger_name}}" data-devoured="{{devoured}}">
-          <p>{{id}}. {{burger_name}}</p>
-          <span class="badge badge-light p-2">Devour it</span>
+        <div class="item-container">
+          <div class="burger-name bg-primary rounded-top text-center text-white mx-auto mb-3 d-block" data-id="{{id}}" data-burger_name="{{burger_name}}" data-devoured="{{devoured}}">
+            <p>{{id}}. {{burger_name}}</p>
+            {{!-- <span class="badge badge-light p-2">Devour it</span> --}}
+          </div>
+          {{!-- <textarea name="name-submit" class="p-3 rounded-bottom" cols="0" rows="1" placeholder="Who's gonna eat it?"></textarea> --}}
         </div>
         {{/unless}} 
       {{/each}}
@@ -21,9 +24,9 @@
     <div class="col-sm-6 text-left devoured-container">
       {{#each burger}} 
         {{#if devoured}}
-        <div class="btn btn-danger mb-3 d-block">
+        <div class="burger-name bg-danger rounded-top text-center text-white mx-auto mb-3 d-block">
           <p>{{id}}. {{burger_name}} </p>
-          <small class="text-white">devoured</small>
+          {{!-- <small class="text-white">devoured</small> --}}
         </div>
         {{/if}} 
       {{/each}}

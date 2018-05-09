@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const models = require('./models');
+const db = require('./models');
 const routes = require('./routes/api-routes');
 
 // create the server
@@ -23,9 +23,9 @@ app.set('view engine', 'handlebars');
 // require the server to use our routes
 app.use(routes);
 
-models.sequelize.sync();
-
-// start the server
-app.listen(PORT, function() {
-  console.log('App now listening at localhost:' + PORT);
+db.sequelize.sync({ force: true }).then(() => {
+  // start the server
+  app.listen(PORT, function() {
+    console.log('App now listening at localhost:' + PORT);
+  });
 });
