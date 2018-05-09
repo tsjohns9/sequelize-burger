@@ -2,10 +2,6 @@ body {
   background-color: #f5f5f5;
 }
 
-.burger-name {
-  /* padding: 6px 12px; */
-}
-
 .form-control {
   border-radius: 0;
 }
@@ -48,6 +44,10 @@ textarea,
 }
 
 @media (min-width: 992px) {
+  .container {
+    width: 920px;
+  }
+
   .alert-danger {
     width: 70%;
   }

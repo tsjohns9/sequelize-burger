@@ -3,20 +3,18 @@
   <img class="mb-4" src="/assets/img/krabby-patty.jpg" alt="krabby patty">
 
   <div class="mb-5">
-    <textarea name="input" class="submit-btn p-3 rounded" id="" cols="0" rows="1" placeholder="Add a burger"></textarea>
+    <textarea name="input" class="submit-btn p-3 rounded" id="burger-submit" cols="0" rows="1" placeholder="Add a burger"></textarea>
   </div>
 
   <div class="row mb-3">
-    <div class="col-sm-6 text-right mb-3" id="burger-container">
+    <div class="col-sm-6 text-right mb-3 mb-md-0" id="burger-container">
       {{#each burger}} 
         {{#unless devoured}}
-        <div class="item-container burger-name text-center text-white mx-auto mb-3 d-block">
+        <div class="item-container text-center text-white mx-auto w-100 mb-3 d-block">
           <div class="bg-primary padding rounded-top" data-id="{{id}}" data-burger_name="{{burger_name}}" data-devoured="{{devoured}}">
             <p class="m-0">{{id}}. {{burger_name}}</p>
-            {{!-- <span class="badge badge-light p-2">Devour it</span> --}}
           </div>
-          <textarea name="customer-name" class="submit-btn rounded-bottom p-2" cols="0" rows="1" placeholder="Who's gonna eat it?"></textarea>
-          {{!-- <input type="text" class="devour-btn form-control text-left rounded-bottom" placeholder="Who's gonna eat it?"> --}}
+          <textarea name="customer-name" class="submit-btn customer-submit rounded-bottom p-2" cols="0" rows="1" placeholder="Who's gonna eat it?"></textarea>
         </div>
         {{/unless}} 
       {{/each}}
@@ -25,9 +23,11 @@
     <div class="col-sm-6 text-left devoured-container">
       {{#each burger}} 
         {{#if devoured}}
-        <div class="burger-name bg-danger rounded-top text-center text-white mx-auto mb-3 d-block">
+        <div class="bg-danger rounded text-center text-white py-2 mx-auto mb-3 d-block">
           <p>{{id}}. {{burger_name}} </p>
-          {{!-- <small class="text-white">devoured</small> --}}
+          <small class="text-white">devoured by </small>
+          {{!--<small class="text-white">devoured by {{how do I get the customer name from the other table?}}</small> --}}
+
         </div>
         {{/if}} 
       {{/each}}

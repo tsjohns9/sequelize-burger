@@ -1,40 +1,43 @@
 $(document).ready(function() {
   // sends new burger to the db
-  $('#submit-btn').keyup(function(e) {
+  $('#burger-submit').keyup(function(e) {
     // gets textarea value when enter is pressed
     if (e.keyCode === 13) {
-      const name = {
-        name: $('#submit-btn')
+      const burgerName = {
+        name: $(this)
           .val()
           .trim()
       };
       $(this).val('');
       // adds a burger, or shows an error
-      checkLength(name);
+      checkLength(burgerName);
     }
   });
 
-  // devoured btn click event
-  // $(document).on('click', '.devour-btn', function() {
-  //   // creates an object to contain our id and devoured status. done this way to easily pass into the sql query
-  //   const updateById = {
-  //     id: { id: $(this).attr('data-id') },
-  //     devoured: { devoured: 1 }
-  //   };
-  //   updateBurger(updateById);
-  // });
-
-  // devoured btn click event
-  $(document).on('keyup', '.devour-btn', function() {
-    console.log('hi');
-    // creates an object to contain our id and devoured status. done this way to easily pass into the sql query
-    const updateById = {
-      id: { id: $(this).attr('data-id') },
-      devoured: { devoured: 1 }
-    };
-    console.log($(this).val());
-    // updateBurger(updateById);
+  $(document).on('keyup', '.customer-submit', function(e) {
+    // gets textarea value when enter is pressed
+    if (e.keyCode === 13) {
+      const updateById = {
+        id: {
+          id: $(this).attr('data-id')
+        },
+        devoured: { devoured: 1 },
+        name: $(this)
+          .val()
+          .trim()
+      };
+      $(this).val('');
+      // updateBurger(updateById);
+    }
   });
+
+  //************************************* */
+  // when customer name is added
+  // create row for new customer
+  // update burger status to devoured
+  // add foreign key to burger
+  // render customer name to screen when page loads
+  //************************************* */
 
   // used to set the burger to devoured. reloads the page to re-sync all items from the db.
   const updateBurger = input => {
@@ -49,12 +52,14 @@ $(document).ready(function() {
     $('.alert-danger').remove();
     $.post('/api/burgers', value, function(data) {
       $('#burger-container').append(`
-      <div class="btn btn-primary devour-btn mb-3 d-block" data-id="${
-        data.id
-      }" data-burger_name="${value.name}" data-devoured="0">
-        <p>${data.id}. ${value.name}</p>
-        <span class="badge badge-light p-2">Devour it</span>
-      </div> 
+        <div class="item-container text-center text-white mx-auto w-100 mb-3 d-block">
+          <div class="bg-primary padding rounded-top" data-id="${
+            data.id
+          }" data-burger_name="${value.name}" data-devoured="0">
+            <p class="m-0">${data.id}. ${value.name}</p>
+          </div>
+          <textarea name="customer-name" class="submit-btn customer-submit rounded-bottom p-2" cols="0" rows="1" placeholder="Who's gonna eat it?"></textarea>
+        </div>
       `);
     });
   };

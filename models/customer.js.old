@@ -1,0 +1,9 @@
+module.exports = function(sequelize, dataTypes) {
+  const Customer = sequelize.define(
+    'Customers',
+    { customer_name: { type: dataTypes.STRING } },
+    { timestamps: false }
+  );
+
+  return Customer;
+};
