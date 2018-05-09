@@ -3,19 +3,20 @@
   <img class="mb-4" src="/assets/img/krabby-patty.jpg" alt="krabby patty">
 
   <div class="mb-5">
-    <textarea name="input" class="p-3 rounded" id="submit-btn" cols="0" rows="1" placeholder="Add a burger"></textarea>
+    <textarea name="input" class="submit-btn p-3 rounded" id="" cols="0" rows="1" placeholder="Add a burger"></textarea>
   </div>
 
   <div class="row mb-3">
     <div class="col-sm-6 text-right mb-3" id="burger-container">
       {{#each burger}} 
         {{#unless devoured}}
-        <div class="item-container">
-          <div class="burger-name bg-primary rounded-top text-center text-white mx-auto mb-3 d-block" data-id="{{id}}" data-burger_name="{{burger_name}}" data-devoured="{{devoured}}">
-            <p>{{id}}. {{burger_name}}</p>
+        <div class="item-container burger-name text-center text-white mx-auto mb-3 d-block">
+          <div class="bg-primary padding rounded-top" data-id="{{id}}" data-burger_name="{{burger_name}}" data-devoured="{{devoured}}">
+            <p class="m-0">{{id}}. {{burger_name}}</p>
             {{!-- <span class="badge badge-light p-2">Devour it</span> --}}
           </div>
-          {{!-- <textarea name="name-submit" class="p-3 rounded-bottom" cols="0" rows="1" placeholder="Who's gonna eat it?"></textarea> --}}
+          <textarea name="customer-name" class="submit-btn rounded-bottom p-2" cols="0" rows="1" placeholder="Who's gonna eat it?"></textarea>
+          {{!-- <input type="text" class="devour-btn form-control text-left rounded-bottom" placeholder="Who's gonna eat it?"> --}}
         </div>
         {{/unless}} 
       {{/each}}

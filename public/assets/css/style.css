@@ -3,7 +3,15 @@ body {
 }
 
 .burger-name {
-  padding: 6px 12px;
+  /* padding: 6px 12px; */
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.padding {
+  padding: 8px 12px;
 }
 
 .devour-btn {
@@ -15,7 +23,7 @@ img {
   height: 250px;
 }
 
-#submit-btn {
+.submit-btn {
   padding: 0;
   border: none;
   border: 1px solid rgb(207, 207, 207);
@@ -40,7 +48,6 @@ textarea,
 }
 
 @media (min-width: 992px) {
-  textarea,
   .alert-danger {
     width: 70%;
   }

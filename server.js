@@ -23,7 +23,7 @@ app.set('view engine', 'handlebars');
 // require the server to use our routes
 app.use(routes);
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   // start the server
   app.listen(PORT, function() {
     console.log('App now listening at localhost:' + PORT);

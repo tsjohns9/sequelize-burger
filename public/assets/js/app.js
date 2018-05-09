@@ -15,13 +15,25 @@ $(document).ready(function() {
   });
 
   // devoured btn click event
-  $(document).on('click', '.devour-btn', function() {
+  // $(document).on('click', '.devour-btn', function() {
+  //   // creates an object to contain our id and devoured status. done this way to easily pass into the sql query
+  //   const updateById = {
+  //     id: { id: $(this).attr('data-id') },
+  //     devoured: { devoured: 1 }
+  //   };
+  //   updateBurger(updateById);
+  // });
+
+  // devoured btn click event
+  $(document).on('keyup', '.devour-btn', function() {
+    console.log('hi');
     // creates an object to contain our id and devoured status. done this way to easily pass into the sql query
     const updateById = {
       id: { id: $(this).attr('data-id') },
       devoured: { devoured: 1 }
     };
-    updateBurger(updateById);
+    console.log($(this).val());
+    // updateBurger(updateById);
   });
 
   // used to set the burger to devoured. reloads the page to re-sync all items from the db.
